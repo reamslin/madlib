@@ -1,17 +1,15 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Madlib form</title>
-    <link rel="stylesheet" href="/static/app.css">
-</head>
-<body>
+{% extends 'base.html'%}
+
+{% block title %}Form{% endblock %}
+
+{% block content %}
     <h1>Madlibs</h1>
-    <form action="/story">
+    <form action="/story/{{story}}">
         {% for prompt in prompts %}
+            <div class="form-input"></div>
             <label for={{prompt}}>{{prompt}}</label>
             <input id={{prompt}} type="text" name={{prompt}}> 
         {% endfor %}
+        <button>SUBMIT</button>
     </form>
-</body>
-</html>
+{% endblock %}
